@@ -1,0 +1,22 @@
+{
+  "name": "listedb",
+  "version": "1.0.0",
+  "description": "test-app",
+  "main": "server.js",
+  "scripts": {
+    "devStart": "nodemon server.js",
+    "client" :"cd client && npm start",
+    "dev": "concurrently \"nodemon server.js\" \"npm run client\""
+  },
+  "author": "Andrii Sotskyi",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^6.3.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.5.7"
+  },
+  "devDependencies": {
+    "dotenv": "^8.0.0",
+    "nodemon": "^1.19.0"
+  }
+}
