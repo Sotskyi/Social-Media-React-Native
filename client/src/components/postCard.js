@@ -3,11 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
-  Image,
-  ScrollView,
-  Linking,
   TouchableOpacity,
-  ActivityIndicator,
   TextInput,
 } from "react-native";
 import { Card, Title, Paragraph } from "react-native-paper";
@@ -72,13 +68,11 @@ export const PostCard = ({ post, fetchPosts, navigation }) => {
               borderWidth: isActiveInput ? 1 : 0,
               height: 150,
               width: 200,
-              // paddingBottom: 200,
             }}
             multiline={true}
             numberOfLines={8}
             autoFocus={isActiveInput}
             editable={isActiveInput}
-            // style={styles.inputPost}
             onChangeText={onChangeMessage}
             value={text}
           ></TextInput>
