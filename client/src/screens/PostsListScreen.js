@@ -18,7 +18,6 @@ import { useHttp } from "../hooks/httpHook";
 export const PostsListScreen = ({ navigation }) => {
   const { loading, request, error, clearError } = useHttp();
   const [data, setData] = useState([]);
-  console.log(navigation);
   async function fetchPosts() {
     let response = await request("activities");
     setData(response);

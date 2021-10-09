@@ -24,18 +24,19 @@ export const ModalPost = ({ fetchPosts }) => {
   const submitPost = async () => {
     if (!name || !message) {
       return setErrorVisible(true);
-    } else
-      await request("activities", "POST", {
-        userName: name,
-        message: message,
-        imageUrl: imageLink,
-      });
-    await fetchPosts();
-    setMessage("");
-    setImageLink("");
-    setName("");
-    setErrorVisible(false);
-    setModalVisible(false);
+    } else {
+      let body = {};
+      if (imageLink) {
+        body = { userName: name, message: message, imageLink: imageLink };
+      } else body = { userName: name, message: message };
+      await request("activities", "POST", body);
+      await fetchPosts();
+      setMessage("");
+      setImageLink("");
+      setName("");
+      setErrorVisible(false);
+      setModalVisible(false);
+    }
   };
 
   return (

@@ -7,17 +7,35 @@ import {
   ScrollView,
   Linking,
 } from "react-native";
+
 import { Card, Title, Paragraph } from "react-native-paper";
 
 export const DetailShowScreen = ({ route }) => {
   return (
-    <View>
-      <Card>
+    <View style={styles.container}>
+      <Card style={styles.card}>
         <Card.Content>
-          <Title>{route.params.userName}</Title>
-          <Paragraph>{route.params.message} </Paragraph>
+          <Title style={{ textAlign: "center" }}>{route.params.userName}</Title>
+          <Paragraph style={{ textAlign: "center", marginTop: 100 }}>
+            {route.params.message}
+          </Paragraph>
         </Card.Content>
       </Card>
     </View>
   );
 };
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    height: "100%",
+    marginVertical: 20,
+  },
+  card: {
+    width: 300,
+    height: 500,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});

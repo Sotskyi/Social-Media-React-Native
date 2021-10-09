@@ -49,11 +49,11 @@ exports.deleteActivity = async (req, res) => {
 };
 exports.updateActivity = async (req, res) => {
   try {
-    console.log(req.body._id);
+    console.log(req.body);
     const activity = await ActivityModel.findById(req.body._id);
 
     activity.message = req.body.message;
-    console.log(activity);
+
     activity.save();
 
     return res.status(200).json({

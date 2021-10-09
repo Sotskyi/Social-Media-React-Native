@@ -95,14 +95,6 @@ export const PostCard = ({ post, fetchPosts, navigation }) => {
               />
             </TouchableOpacity>
           )}
-
-          {/* {post.imageUrl && (
-            <Image
-              style={{ height: 150, width: 150 }}
-              source={{ uri: post.imageUrl }}
-              resizeMode="contain"
-            />
-          )} */}
         </Card.Content>
         <View
           style={{
