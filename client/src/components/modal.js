@@ -56,6 +56,7 @@ export const ModalPost = ({ fetchPosts }) => {
               <TextInput
                 placeholder="Name (required)"
                 style={styles.inputName}
+                placeholderTextColor="grey"
                 autoFocus={true}
                 onChangeText={onChangeName}
                 value={name}
@@ -64,6 +65,7 @@ export const ModalPost = ({ fetchPosts }) => {
             <View style={styles.inputContainerMessage}>
               <TextInput
                 placeholder="Message (required)"
+                placeholderTextColor="grey"
                 style={styles.inputPost}
                 onChangeText={onChangeMessage}
                 value={message}
@@ -72,6 +74,7 @@ export const ModalPost = ({ fetchPosts }) => {
             <View style={{ ...styles.inputContainerName, marginBottom: 10 }}>
               <TextInput
                 placeholder="Image link (optional)"
+                placeholderTextColor="grey"
                 style={{ ...styles.inputName }}
                 onChangeText={onChangeImageLink}
                 value={imageLink}
@@ -104,7 +107,7 @@ export const ModalPost = ({ fetchPosts }) => {
         style={styles.openButton}
         onPress={() => setModalVisible(true)}
       >
-        <Text style={styles.textStyle}>Add post</Text>
+        <Text style={styles.openButtonText}>Add post</Text>
       </TouchableHighlight>
     </View>
   );
@@ -133,14 +136,19 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
+    zIndex: 5,
   },
   openButton: {
     backgroundColor: "#FF9912",
     borderRadius: 20,
     padding: 15,
+
     justifyContent: "center",
     zIndex: 3, // works on ios
     elevation: 3, // works on android
+    textAlign: "center",
+    // justifyContent: "center",
+    // alignItems: "center",
   },
   textStyle: {
     color: "white",
@@ -154,7 +162,7 @@ const styles = StyleSheet.create({
 
   inputContainerName: {
     borderWidth: 1,
-    height: 20,
+    height: 40,
     backgroundColor: "#ffffff",
     paddingLeft: 15,
     paddingRight: 15,
@@ -166,5 +174,10 @@ const styles = StyleSheet.create({
     margin: 10,
     paddingBottom: 30,
     width: "100%",
+  },
+  openButtonText: {
+    padding: 20,
+    marginBottom: 15,
+    color: "white",
   },
 });
