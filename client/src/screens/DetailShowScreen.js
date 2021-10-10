@@ -1,9 +1,9 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Button } from "react-native";
 
 import { Card, Title, Paragraph } from "react-native-paper";
 
-export const DetailShowScreen = ({ route }) => {
+export const DetailShowScreen = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <Card style={styles.card}>
@@ -14,6 +14,15 @@ export const DetailShowScreen = ({ route }) => {
           </Paragraph>
         </Card.Content>
       </Card>
+      <View>
+        <Button
+          title="Back to Main"
+          onPress={() => {
+            /* go back from *EditCover* to *Cover* */
+            navigation.navigate("Home");
+          }}
+        />
+      </View>
     </View>
   );
 };
