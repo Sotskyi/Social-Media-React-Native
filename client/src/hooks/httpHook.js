@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { IPV4 } from "../../utils/constants";
+import { Host } from "../../utils/constants";
 
 export const useHttp = () => {
   const [loading, setLoading] = useState(false);
@@ -9,7 +9,7 @@ export const useHttp = () => {
     async (url, method = "GET", body = null, headers = {}) => {
       setLoading(true);
       if (url) {
-        url = IPV4 + url;
+        url = Host + url;
       }
 
       try {
