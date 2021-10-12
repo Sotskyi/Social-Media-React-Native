@@ -6,7 +6,7 @@ import { ModalPost } from "../components/modal";
 import { useHttp } from "../hooks/httpHook";
 
 export const PostsListScreen = ({ navigation }) => {
-  const { loading, request, error, clearError } = useHttp();
+  const { loading, request } = useHttp();
   const [data, setData] = useState([]);
 
   async function fetchPosts() {
@@ -18,30 +18,40 @@ export const PostsListScreen = ({ navigation }) => {
     fetchPosts();
   }, []);
 
+  if (loading) {
+    return (
+      <View
+        style={{
+          flex: 1,
+          justifyContt: "center",
+          flexDirection: "row",
+          justifyContent: "space-around",
+          padding: 10,
+        }}
+      >
+        <ActivityIndicator size="large" />
+      </View>
+    );
+  }
   return (
     <View style={styles.container}>
       <NavBar />
       <ModalPost fetchPosts={fetchPosts} />
-      {/* <PostsList /> */}
-      {loading ? (
-        <ActivityIndicator />
-      ) : (
-        <FlatList
-          contentContainerStyle={{
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-          data={data}
-          keyExtractor={({ _id }) => _id}
-          renderItem={({ item }) => (
-            <PostCard
-              post={item}
-              fetchPosts={fetchPosts}
-              navigation={navigation}
-            />
-          )}
-        />
-      )}
+      <FlatList
+        contentContainerStyle={{
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+        data={data}
+        keyExtractor={({ _id }) => _id}
+        renderItem={({ item }) => (
+          <PostCard
+            post={item}
+            fetchPosts={fetchPosts}
+            navigation={navigation}
+          />
+        )}
+      />
     </View>
   );
 };
