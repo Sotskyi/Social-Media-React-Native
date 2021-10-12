@@ -5,15 +5,16 @@
 # Quick start
 
 # Install dependencies
-
 npm i cd client npm i
+# Install Expo
+npm install --global expo-cli
 
-# Change in constants.js IPV4 to your ipv4
-
-Open up the Command Prompt via your Windows Start menu. Type in “ipconfig” and hit Enter. Look for the line that reads “IPv4 Address.” The number across from that text is your local IP address.
-
-Go to client\utils\constants.js change IPV4
-
+# for IOS and Android 
+cd client npm start 
+run IOS or Android in 
 # start app
+cd client npm start
 
-npm run dev
+click run on Android device/emulator or use your phones
+
+you don't need to run local server 
