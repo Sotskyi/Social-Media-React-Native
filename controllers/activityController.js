@@ -34,7 +34,9 @@ exports.addActivity = async (req, res) => {
 
 exports.deleteActivity = async (req, res) => {
   try {
-    const activity = await ActivityModel.findOneAndDelete(req.param.id);
+    const activity = await ActivityModel.findOneAndDelete({
+      _id: req.params.id,
+    });
 
     return res.status(200).json({
       sucess: true,
