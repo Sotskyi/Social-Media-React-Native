@@ -3,6 +3,8 @@
     "name": "my-app",
     "slug": "my-app",
     "version": "1.0.0",
+    "privacy":"public",
+    "description":"An aplication to add, delete, change posts",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {

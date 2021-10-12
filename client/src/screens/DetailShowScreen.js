@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Button } from "react-native";
+import { StyleSheet, View, Button, Image } from "react-native";
 
 import { Card, Title, Paragraph } from "react-native-paper";
 
@@ -12,13 +12,19 @@ export const DetailShowScreen = ({ navigation, route }) => {
           <Paragraph style={{ textAlign: "center", marginTop: 100 }}>
             {route.params.message}
           </Paragraph>
+          <View style={{ alignItems: "center" }}>
+            <Image
+              style={{ height: 150, width: 150, borderRadius: 15 }}
+              source={{ uri: route.params.imageUrl }}
+              resizeMode="contain"
+            />
+          </View>
         </Card.Content>
       </Card>
-      <View>
+      <View style={{ marginTop: 20 }}>
         <Button
           title="Back to Main"
           onPress={() => {
-            /* go back from *EditCover* to *Cover* */
             navigation.navigate("Home");
           }}
         />
