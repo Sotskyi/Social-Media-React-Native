@@ -5,6 +5,7 @@ import {
   View,
   TouchableOpacity,
   TextInput,
+  Image,
 } from "react-native";
 import { Card, Title, Paragraph } from "react-native-paper";
 import { AntDesign } from "@expo/vector-icons";
@@ -40,7 +41,7 @@ export const PostCard = ({ post, fetchPosts, navigation }) => {
     navigation.navigate("Details", post);
   };
 
-  const deletePost = async (post) => {
+  const deletePost = async () => {
     try {
       await request("activities/" + post._id, "DELETE");
       await fetchPosts();
@@ -88,6 +89,15 @@ export const PostCard = ({ post, fetchPosts, navigation }) => {
                 color="black"
               />
             </TouchableOpacity>
+          )}
+          {post.imageUrl && (
+            <View style={{ alignItems: "center" }}>
+              <Image
+                style={{ height: 150, width: 150, borderRadius: 15 }}
+                source={{ uri: post.imageUrl }}
+                resizeMode="contain"
+              />
+            </View>
           )}
         </Card.Content>
         <View
